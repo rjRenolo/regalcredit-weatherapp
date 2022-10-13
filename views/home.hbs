@@ -284,7 +284,9 @@
         const recents = localStorage.getItem('weather-forecast');
         if(recents !== null){
             const recentsArr = JSON.parse(recents);
-            recentsArr.map((item, index) => {
+            // reverse
+
+            recentsArr.reverse().map((item, index) => {
                 appendHtmlToRecentResults(item);
             })
         }
