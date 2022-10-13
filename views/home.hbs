@@ -1,0 +1,300 @@
+<div class="header bg-salte-800 p-6 shadow-lg mb-4 border-b border-b-slate-700">
+    <span>A Simple Weather App</span>
+</div>
+<div class="container mx-auto grid grid-cols-3">
+    <div class="search-container p-4 m-4 border border-slate-700 shadow-lg rounded-md">
+        <div class="search-header flex space-x-1 mb-4">
+            <input class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-4 text-base font-medium text-[#6B7280] outline-none focus:border-[#ffffff] focus:shadow-md" type="text" name="loc" id="loc" placeholder="Location">
+            {{!-- <button class="rounded-md bg-[#3B82F6] text-white py-2 px-4 text-base outline-none focus:shadow-md" id="search">Search</button> --}}
+        </div>
+        <div class="search-results">
+            <ul class="search-results-list">
+                {{!-- <li class="search-results-item mb-2 cursor-pointer">
+                    <div class="list-item-card bg-white/40 rounded-sm py-2 px-4 flex flex-col">
+                        <span class="text-xs">Country</span>
+                        <span class="ml-2 font-medium">Some City</span>
+                    </div>
+                </li> --}}
+            </ul>
+        </div>
+    </div>
+    <div class="results-container p-4 col-span-2 m-4 border border-slate-700 shadow-lg rounded-md flex flex-col">
+        <div class="recent-result-header flex justify-between items-center">
+            <span>Recent Results</span>
+            <button id="clear-recent-results" class="bg-[#394e70] py-2 px-4 rounded">Clear</button>
+        </div>
+        <ul class="recent-weather-results">
+            {{!-- <li class="mt-8 border border-white rounded-md p-4">
+                <div class="header flex flex-col text-center">
+                    <span class="font-bold text-sm">Country</span>
+                    <span class="font-regular text-lg">Some City</span>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="outer-wrapper text-center">
+                        <div class="card-title mb-1 px-4 flex flex-row justify-between items-center">
+                            <span>
+                                <span class="font-bold">{{ParsedDate.Day}},</span> 
+                                <span>{{ParsedDate.Month}}</span> 
+                                <span>{{ParsedDate.Date}}</span> 
+                            </span>
+                            <span class="text-xs font-bold tracking-widest">{{Temperature.Minimum.Value}}&#176;{{Temperature.Minimum.Unit}} - {{Temperature.Maximum.Value}}&#176;{{Temperature.Maximum.Unit}}</span>
+                        </div>
+                        <div class="card h-96 relative bg-[#394e70] grid grid-rows-2 rounded-lg py-4 px-2">
+                            <div class="day-forecast flex flex-col items-center">
+                                <div class="temperature w-full flex flex-col items-center justify-center">
+                                    <span class="mb-2">Day Forecast</span>
+                                </div>
+                                <img src="{{Day.IconUrl}}" class="w-2/4">
+                                <span class="text-sm font-light">{{Day.ShortPhrase}}</span>
+                            <hr class="w-11/12 mt-4 mx-8" />
+                            </div>
+                            <div class="night-forecast flex flex-col items-center">
+                                <div class="temperature w-full flex flex-col items-center justify-center">
+                                    <span class="mb-2">Night Forecast</span>
+                                </div>
+                                <img src="{{Night.IconUrl}}" class="w-2/4">
+                                <span class="text-sm font-light">{{Night.ShortPhrase}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outer-wrapper text-center">
+                        <div class="card-title mb-1 px-4 flex flex-row justify-between items-center">
+                            <span>
+                                <span class="font-bold">{{ParsedDate.Day}},</span> 
+                                <span>{{ParsedDate.Month}}</span> 
+                                <span>{{ParsedDate.Date}}</span> 
+                            </span>
+                            <span class="text-xs font-bold tracking-widest">{{Temperature.Minimum.Value}}&#176;{{Temperature.Minimum.Unit}} - {{Temperature.Maximum.Value}}&#176;{{Temperature.Maximum.Unit}}</span>
+                        </div>
+                        <div class="card h-96 relative bg-[#394e70] grid grid-rows-2 rounded-lg py-4 px-2">
+                            <div class="day-forecast flex flex-col items-center">
+                                <div class="temperature w-full flex flex-col items-center justify-center">
+                                    <span class="mb-2">Day Forecast</span>
+                                </div>
+                                <img src="{{Day.IconUrl}}" class="w-2/4">
+                                <span class="text-sm font-light">{{Day.ShortPhrase}}</span>
+                            <hr class="w-11/12 mt-4 mx-8" />
+                            </div>
+                            <div class="night-forecast flex flex-col items-center">
+                                <div class="temperature w-full flex flex-col items-center justify-center">
+                                    <span class="mb-2">Night Forecast</span>
+                                </div>
+                                <img src="{{Night.IconUrl}}" class="w-2/4">
+                                <span class="text-sm font-light">{{Night.ShortPhrase}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outer-wrapper text-center">
+                        <div class="card-title mb-1 px-4 flex flex-row justify-between items-center">
+                            <span>
+                                <span class="font-bold">{{ParsedDate.Day}},</span> 
+                                <span>{{ParsedDate.Month}}</span> 
+                                <span>{{ParsedDate.Date}}</span> 
+                            </span>
+                            <span class="text-xs font-bold tracking-widest">{{Temperature.Minimum.Value}}&#176;{{Temperature.Minimum.Unit}} - {{Temperature.Maximum.Value}}&#176;{{Temperature.Maximum.Unit}}</span>
+                        </div>
+                        <div class="card h-96 relative bg-[#394e70] grid grid-rows-2 rounded-lg py-4 px-2">
+                            <div class="day-forecast flex flex-col items-center">
+                                <div class="temperature w-full flex flex-col items-center justify-center">
+                                    <span class="mb-2">Day Forecast</span>
+                                </div>
+                                <img src="{{Day.IconUrl}}" class="w-2/4">
+                                <span class="text-sm font-light">{{Day.ShortPhrase}}</span>
+                            <hr class="w-11/12 mt-4 mx-8" />
+                            </div>
+                            <div class="night-forecast flex flex-col items-center">
+                                <div class="temperature w-full flex flex-col items-center justify-center">
+                                    <span class="mb-2">Night Forecast</span>
+                                </div>
+                                <img src="{{Night.IconUrl}}" class="w-2/4">
+                                <span class="text-sm font-light">{{Night.ShortPhrase}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li> --}}
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    jQuery(document).ready(function($) {
+        function seasrchInputChanged(){
+            if($('#loc').val() !== ""){
+                console.log('search input changed', $('#loc').val());
+                $.ajax({
+                    url: '/api/search',
+                    type: 'POST',
+                    data: {location: $('#loc').val()},
+                    success: function(res){
+                        $('.search-results-list').html('');
+                        res.data.map((item, index) => {
+                            console.log(item)
+                            $('.search-results-list').append(`
+                                <li class="search-results-item mb-2 cursor-pointer" data-id="${item.Key}">
+                                    <div class="list-item-card bg-white/40 rounded-sm py-2 px-4 flex flex-col">
+                                        <span class="country text-xs">${item.Country.LocalizedName}</span>
+                                        <span class="localname ml-2 font-medium">${item.LocalizedName}</span>
+                                    </div>
+                                </li>
+                            `);
+                        })
+                    },
+                    error: function(err){
+                        alert(err.responseJSON.message);
+                    }
+                })
+            }else{
+                $('.search-results-list').html('');
+            }
+
+        }
+        $('#loc').keyup($.debounce(300, seasrchInputChanged))
+
+
+
+        // Getting weather forecast
+        $('.search-results-list').on('click', '.search-results-item', function(){
+            console.log('clicked', $(this).attr('data-id'));
+            console.log('clicked', $(this).find('.localname').text());
+            console.log('clicked', $(this).find('.country').text());
+            $.ajax({
+                url: '/api/forecast',
+                type: 'POST',
+                data: {
+                    location: $(this).attr('data-id'),
+                    locationName: $(this).find('.localname').text(),
+                    locationCountry: $(this).find('.country').text()
+                },
+                success: function(res){
+                    console.log(res.data);
+                    const recents = localStorage.getItem('weather-forecast', JSON.stringify(res.data));
+                    if(recents !== null){
+                        const recentsArr = JSON.parse(recents);
+                        recentsArr.unshift(res.data);
+                        localStorage.setItem('weather-forecast', JSON.stringify(recentsArr));
+                    }else{
+                        localStorage.setItem('weather-forecast', JSON.stringify([res.data]));
+                    }
+                    appendHtmlToRecentResults(res.data)
+                },
+                error: function(err){
+                    alert(err.responseJSON.message);
+                }
+            })
+        })
+        // Appending to Recent Results
+        function appendHtmlToRecentResults(item){
+            $('.recent-weather-results').prepend(`
+                <li class="mt-8 border border-white rounded-md p-4">
+                    <div class="header flex flex-col text-center">
+                        <span class="font-bold text-sm">${item[0].Country}</span>
+                        <span class="font-regular text-xl underline">${item[0].Location}</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="outer-wrapper text-center">
+                            <div class="card-title mb-1 px-4 flex flex-row justify-between items-center">
+                                <span>
+                                    <span class="font-bold">${item[0].ParsedDate.Day},</span> 
+                                    <span>${item[0].ParsedDate.Month}</span> 
+                                    <span>${item[0].ParsedDate.Date}</span> 
+                                </span>
+                                <span class="text-xs font-bold tracking-widest">${item[0].Temperature.Minimum.Value}&#176;${item[0].Temperature.Minimum.Unit} - ${item[0].Temperature.Maximum.Value}&#176;${item[0].Temperature.Maximum.Unit}</span>
+                            </div>
+                            <div class="card h-96 relative bg-[#394e70] grid grid-rows-2 rounded-lg py-4 px-2">
+                                <div class="day-forecast flex flex-col items-center">
+                                    <div class="temperature w-full flex flex-col items-center justify-center">
+                                        <span class="mb-2">Day Forecast</span>
+                                    </div>
+                                    <img src="${item[0].Day.IconURL}" class="w-2/4">
+                                    <span class="text-sm font-light">${item[0].Day.ShortPhrase}</span>
+                                <hr class="w-11/12 mt-4 mx-8" />
+                                </div>
+                                <div class="night-forecast flex flex-col items-center">
+                                    <div class="temperature w-full flex flex-col items-center justify-center">
+                                        <span class="mb-2">Night Forecast</span>
+                                    </div>
+                                    <img src="${item[0].Night.IconURL}" class="w-2/4">
+                                    <span class="text-sm font-light">${item[0].Night.ShortPhrase}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer-wrapper text-center">
+                            <div class="card-title mb-1 px-4 flex flex-row justify-between items-center">
+                                <span>
+                                    <span class="font-bold">${item[1].ParsedDate.Day},</span> 
+                                    <span>${item[1].ParsedDate.Month}</span> 
+                                    <span>${item[1].ParsedDate.Date}</span> 
+                                </span>
+                                <span class="text-xs font-bold tracking-widest">${item[1].Temperature.Minimum.Value}&#176;${item[1].Temperature.Minimum.Unit} - ${item[1].Temperature.Maximum.Value}&#176;${item[1].Temperature.Maximum.Unit}</span>
+                            </div>
+                            <div class="card h-96 relative bg-[#394e70] grid grid-rows-2 rounded-lg py-4 px-2">
+                                <div class="day-forecast flex flex-col items-center">
+                                    <div class="temperature w-full flex flex-col items-center justify-center">
+                                        <span class="mb-2">Day Forecast</span>
+                                    </div>
+                                    <img src="${item[1].Day.IconURL}" class="w-2/4">
+                                    <span class="text-sm font-light">${item[1].Day.ShortPhrase}</span>
+                                <hr class="w-11/12 mt-4 mx-8" />
+                                </div>
+                                <div class="night-forecast flex flex-col items-center">
+                                    <div class="temperature w-full flex flex-col items-center justify-center">
+                                        <span class="mb-2">Night Forecast</span>
+                                    </div>
+                                    <img src="${item[1].Night.IconURL}" class="w-2/4">
+                                    <span class="text-sm font-light">${item[1].Night.ShortPhrase}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outer-wrapper text-center">
+                            <div class="card-title mb-1 px-4 flex flex-row justify-between items-center">
+                                <span>
+                                    <span class="font-bold">${item[2].ParsedDate.Day},</span> 
+                                    <span>${item[2].ParsedDate.Month}</span> 
+                                    <span>${item[2].ParsedDate.Date}</span> 
+                                </span>
+                                <span class="text-xs font-bold tracking-widest">${item[2].Temperature.Minimum.Value}&#176;${item[2].Temperature.Minimum.Unit} - ${item[2].Temperature.Maximum.Value}&#176;${item[2].Temperature.Maximum.Unit}</span>
+                            </div>
+                            <div class="card h-96 relative bg-[#394e70] grid grid-rows-2 rounded-lg py-4 px-2">
+                                <div class="day-forecast flex flex-col items-center">
+                                    <div class="temperature w-full flex flex-col items-center justify-center">
+                                        <span class="mb-2">Day Forecast</span>
+                                    </div>
+                                    <img src="${item[2].Day.IconURL}" class="w-2/4">
+                                    <span class="text-sm font-light">${item[2].Day.ShortPhrase}</span>
+                                <hr class="w-11/12 mt-4 mx-8" />
+                                </div>
+                                <div class="night-forecast flex flex-col items-center">
+                                    <div class="temperature w-full flex flex-col items-center justify-center">
+                                        <span class="mb-2">Night Forecast</span>
+                                    </div>
+                                    <img src="${item[2].Night.IconURL}" class="w-2/4">
+                                    <span class="text-sm font-light">${item[2].Night.ShortPhrase}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                `)
+        }
+
+
+        // On mount get recent results from localstorate
+        const recents = localStorage.getItem('weather-forecast');
+        if(recents !== null){
+            const recentsArr = JSON.parse(recents);
+            recentsArr.map((item, index) => {
+                appendHtmlToRecentResults(item);
+            })
+        }
+    });
+
+
+
+    // cleare recent results
+    $('#clear-recent-results').on('click', function(){
+        localStorage.removeItem('weather-forecast');
+        $('.recent-weather-results').html('');
+    })
+</script>
